@@ -33,6 +33,7 @@ class TripInput extends Component {
             <p>Length <i>(days)</i>: <input type="text" name="length" value={this.state.length} onChange={(event) => this.handleOnChange(event)} /></p>
             <input type="submit" />
         </form>
+        <p></p>
       </div>    
     )
   }

@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.sitecard  {
+  border-color: red;
+  border-width: 3px;
+}
+
+/* .App {
+  background-color: blue;
+} */

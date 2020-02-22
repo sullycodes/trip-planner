@@ -24,7 +24,11 @@ class Api::TripsController < ApplicationController
 
     def destroy
         @trip = Trip.find_by(id: params[:id])
+        @trip.sites.each do |s|
+            s.destroy
+        end
         @trip.destroy
+        render json: @trip.id
     end
 
     private

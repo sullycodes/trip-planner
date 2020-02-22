@@ -7,7 +7,7 @@ class Api::SitesController < ApplicationController
     end
 
     def index
-        @sites = @trip.sites
+        @sites = Site.all
         render json: @sites
     end
 
@@ -27,7 +27,8 @@ class Api::SitesController < ApplicationController
 
     def destroy
         @site = Site.find_by(id: params[:id])
-        @site.destroy
+        @site.delete
+        render json: Site.all
     end
 
     private

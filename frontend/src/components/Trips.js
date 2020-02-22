@@ -5,7 +5,8 @@ const Trips = (props) => {
 
   return (
     <div>
-       {props.trips.map(t => <Trip {...t}/>)}
+       {props.trips.map(t => <Trip {...t} deleteTrip={props.deleteTrip}/>)} 
+       {/* includes props sites */}
     </div>
   );
 }
