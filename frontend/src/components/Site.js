@@ -5,13 +5,11 @@ const Site = (props) => {
     return (
         <div> 
             <p></p>  
-             <li>{props.name} </li>
+             <li>{props.name} <button onClick={() => props.deleteSite(props.id)}>DELETE</button></li>
              <p></p>  
-
         </div>
     )
 }
 
-//<button onClick={() => props.deleteSite(props.id)}>DELETE</button>
 
 export default Site
