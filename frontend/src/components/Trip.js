@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SitesContainer from '../containers/SitesContainer'
 
 
 const Trip = (props) => {
-    return (
-        <div>           
-             <li>{props.name} <button onClick={() => props.deleteTrip(props.id)}>DELETE</button></li>
-             <SitesContainer tripId={props.id} />
-        </div>
-    )
+        
+        const trip =  props.trips.find(t => t.id == props.match.params.id)
+        // console.log(props)
+
+        const handleDelete = () => {
+            props.deleteTrip(trip.id)
+            props.history.push('/trips')
+        }
+
+        return (
+            <div > 
+                <h2 className="trip-title">{trip ? trip.name : null }<button onClick={() => handleDelete()}>DELETE</button></h2>
+                <div className="trip-attribute">Start Date: {trip ? trip.date : null }</div>
+                <div className="trip-attribute">Trip Length: {trip ? trip.length : null } days</div>
+                <p>My Sites To See List</p>
+                <SitesContainer tripId={trip ? trip.id : null } />
+            </div>
+        )
 }
 
 export default Trip

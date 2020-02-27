@@ -1,13 +1,12 @@
 import React from 'react';
-import Trip from '../components/Trip'
+import { Link } from 'react-router-dom'
 
 const Trips = (props) => {
-
+  console.log(props)
   return (
-    <div>
-       {props.trips.map(t => <Trip {...t} deleteTrip={props.deleteTrip}/>)} 
-       {/* includes props sites */}
-    </div>
+    <>
+     {props.trips.map( t => <Link className="trip-list" to={`/trips/${t.id}`} >{t.name}</Link>)}
+     </>
   );
 }
 

@@ -5,62 +5,141 @@
   border: 2px solid red; */
 }
 
+
 header {
   margin: 0;
-  padding: 15px;
-  color: white;
-  background-color: darkslateblue;
+  padding: 5px 20px;
+  color: black;
+  font: 20px "Courier New";
+  background-color:#f0ede5;
+  border-top: 15px solid black;
+}
+
+footer {
+  background-color: black;
+  height: 20px;
 }
 
 #nav-bar {
   padding: 20px;
   margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  background-color: whitesmoke;
+  /* border-bottom: 1px solid black; */
+  background-color: #dfd9c7;
 }
 
-.sitecard  {
-  border: 1px solid blue;
+#nav-bar a {
+  color: rgb(31, 4, 4);
+  text-decoration: none;
+  font: 16px "Courier New";
+}
+
+#nav-bar a:hover {
+  color: gray;
+}
+
+.home {
+  height: 100%;
   padding: 20px;
+  height: 600px;
+  background-image: url('https://images.all-free-download.com/images/graphiclarge/world_travel_symbols_312136.jpg');
+  background-repeat: no-repeat;
+  background-size: 400px 400px;
+  background-position-x: 50px;
+  background-position-y: 50px;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* TRIPS */
+
+.trip-container {
+  margin: 20px;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a.trip-list {
+  margin: 20px;
+  padding: 20px;
+  display: block;
+  border-left: 1px dashed black;
+  border-bottom: 1px dashed black;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #f9f8f5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a.trip-list:hover {
+  background-color: #dfd9c7;
 }
 
-.App-link {
-  color: #61dafb;
-} */
+h2.trip-title {
+  margin:0;
+  padding: 10px;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right,#f0ede5, white);
+  width: 90%;
+}
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+h2.trip-title > button {
+  margin-left: 20px;
+  vertical-align: middle;
+}
 
+.trip-attribute {
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  background-color: #f0f0f0;
+  font-style: italic;
+}
 
+/* SITES */
 
-/* .App {
-  background-color: blue;
-} */
+.sites-container {
+  overflow: hidden;
+}
+
+.sites-list {
+  float: left;
+  width: 55%
+}
+
+.site-input {
+  margin: 20px;
+  padding: 20px;
+  float:right;
+  width: 35%;
+  border-radius: 25px;
+  background-color: #f9f8f5;
+}
+
+.site-card  {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f0ede5;
+  font: small-caps normal 20px Arial, Helvetica, sans-serif;
+  box-shadow: 1px 1px grey;
+}
+
+.site-card > img {
+  margin-right: 10px;
+  width: 100px;
+  height: 100px;
+  vertical-align: text-top;
+  float: left;
+  border: 1px solid black;
+}
+
+.site-card h4 {
+  margin: 0;
+}
+
+.site-card > p {
+  font: 14px verdana;
+  overflow: hidden;
+}
+
+.site-card > p.location {
+  font-style: italic;
+}
+

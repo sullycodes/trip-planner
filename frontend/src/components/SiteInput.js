@@ -4,12 +4,18 @@ import '../App.css';
 
 class SiteInput extends Component {
 
+  componentDidUpdate() {
+    this.state = {
+      ...this.state,
+      trip_id: this.props.tripId
+    }
+  }
+
   state = {
     name: '',
     location: '',
     description: '',
-    image_url: '',
-    trip_id: this.props.tripId
+    image_url: ''
   }
 
   handleOnChange(event) {
@@ -32,11 +38,12 @@ class SiteInput extends Component {
 
   render() {
     return (
-      <div className="sitecard">
+      <div className="site-input">
+        <h4>Add a New Site to Your Trip</h4>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
             <p>Site Name: <input type="text" name="name" value={this.state.name} onChange={(event) => this.handleOnChange(event)} /></p>
             <p>Location: <input type="text" name="location" value={this.state.location} onChange={(event) => this.handleOnChange(event)} /></p>
-            <p>Description: : </p><textarea rows="4" cols="50" name="description" value={this.state.description} onChange={(event) => this.handleOnChange(event)} />
+            <p>Description: </p><textarea rows="4" cols="50" name="description" value={this.state.description} onChange={(event) => this.handleOnChange(event)} />
             <p>Image Url: <input type="text" name="image_url" value={this.state.image_url} onChange={(event) => this.handleOnChange(event)} /></p>
             <input type="submit" />
         </form>
