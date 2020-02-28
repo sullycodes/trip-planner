@@ -1,15 +1,18 @@
 const tripsReducer = (state = { trips: [], sites: [] }, action ) => {
     switch(action.type) {
-        // case 'LOADING_TRIPS':
-        //     return {
-        //         ...state,
-        //         trips:[...state.trips],
-        //         loading: true
-        //     }
         case 'FETCH_TRIPS':
             return { ...state, trips: action.trips }
         case 'ADD_TRIP':
-            return {...state, trips: [ ...state.trips, action.trip]}  
+            return {...state, trips: [ ...state.trips, action.trip]} 
+        case 'EDIT_TRIP':
+            const tripsWithEdit = state.trips.map(trip => {
+                if (trip.id === action.editedTrip.id) {
+                  return action.editedTrip
+                } else {
+                  return trip
+                }
+            })
+            return {...state, trips: tripsWithEdit } 
         case 'DELETE_TRIP':
             const trips = state.trips.filter(t => t.id !== action.id)
             const updated_sites = state.sites.filter(s => s.trip_id != action.id)

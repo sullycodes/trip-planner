@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SitesContainer from '../containers/SitesContainer'
+import { Route } from 'react-router-dom'
+import TripEdit from '../components/TripEdit'
 
 
 const Trip = (props) => {
@@ -12,9 +14,13 @@ const Trip = (props) => {
             props.history.push('/trips')
         }
 
+        const handleEdit = () => {
+            props.history.push(`/trips/edit/${trip.id}`)
+        }
+
         return (
             <div > 
-                <h2 className="trip-title">{trip ? trip.name : null }<button onClick={() => handleDelete()}>DELETE</button></h2>
+                <h2 className="trip-title">{trip ? trip.name : null }<button onClick={() => handleEdit()}>EDIT</button><button onClick={() => handleDelete()}>DELETE</button></h2>
                 <div className="trip-attribute">Start Date: {trip ? trip.date : null }</div>
                 <div className="trip-attribute">Trip Length: {trip ? trip.length : null } days</div>
                 <p>My Sites To See List</p>
