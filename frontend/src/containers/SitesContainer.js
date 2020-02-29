@@ -2,6 +2,7 @@ import  React, { Component } from 'react'
 import SiteInput from '../components/SiteInput'
 import { connect } from 'react-redux'
 import { addSite } from '../actions/addSite'
+import { editSite } from '../actions/editSite'
 import { fetchSites } from '../actions/fetchSites'
 import { deleteSite } from '../actions/deleteSite'
 import Sites from '../components/Sites'
@@ -33,6 +34,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addSite: site => dispatch(addSite(site)),
+        editSite: editedSite => dispatch(editSite(editedSite)),
         deleteSite: id => dispatch(deleteSite(id)),
         fetchSites: () => dispatch(fetchSites())    
     }

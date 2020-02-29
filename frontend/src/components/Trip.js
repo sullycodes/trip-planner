@@ -15,7 +15,7 @@ const Trip = (props) => {
         }
 
         const handleEdit = () => {
-            props.history.push(`/trips/edit/${trip.id}`)
+            props.history.push(`/trips/${trip.id}/edit`)
         }
 
         return (

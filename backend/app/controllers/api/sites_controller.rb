@@ -25,6 +25,13 @@ class Api::SitesController < ApplicationController
         render json: @site
     end
 
+    def update
+        @site = Site.find_by(id: params[:id])
+        @site.update(site_params)
+        @site.save
+        render json: @site
+    end
+
     def destroy
         @site = Site.find_by(id: params[:id])
         @site.delete

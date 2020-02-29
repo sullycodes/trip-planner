@@ -21,6 +21,15 @@ const tripsReducer = (state = { trips: [], sites: [] }, action ) => {
                 return { ...state, sites: action.sites}
         case 'ADD_SITE':
             return {...state, sites: [...state.sites, action.site ] }
+        case 'EDIT_SITE':
+            const sitesWithEdit = state.sites.map(s => {
+                if (s.id === action.editedSite.id) {
+                    return action.editedSite
+                } else {
+                    return s
+                }
+            })
+            return {...state, sites: sitesWithEdit } 
         case 'DELETE_SITE':
             const sites = state.sites.filter(s => s.id !== action.id)
             return { ...state, sites: sites }

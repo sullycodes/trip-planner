@@ -44,7 +44,7 @@ class SiteInput extends Component {
             <p>Site Name: <input type="text" name="name" value={this.state.name} onChange={(event) => this.handleOnChange(event)} /></p>
             <p>Location: <input type="text" name="location" value={this.state.location} onChange={(event) => this.handleOnChange(event)} /></p>
             <p>Description: </p><textarea rows="4" cols="50" name="description" value={this.state.description} onChange={(event) => this.handleOnChange(event)} />
-            <p>Image Url: <input type="text" name="image_url" value={this.state.image_url} onChange={(event) => this.handleOnChange(event)} /></p>
+            <p>Image Url: <input type="text" name="image_url" size="50" value={this.state.image_url} onChange={(event) => this.handleOnChange(event)} /></p>
             <input type="submit" />
         </form>
       </div>    

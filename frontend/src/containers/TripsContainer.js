@@ -5,18 +5,21 @@ import { fetchSites } from '../actions/fetchSites'
 import { addTrip } from '../actions/addTrip'
 import { editTrip } from '../actions/editTrip'
 import { deleteTrip } from '../actions/deleteTrip'
+import { editSite } from '../actions/editSite'
 import { Route, Switch } from 'react-router-dom'
 import Trip from '../components/Trip'
 import Trips from '../components/Trips'
 import TripInput from '../components/TripInput'
 import TripEdit from '../components/TripEdit'
+import SiteEdit from '../components/SiteEdit'
+
 
 
 class TripsContainer extends Component {
 
     componentDidMount() {
         this.props.fetchTrips()
-        // this.props.fetchSites()
+        this.props.fetchSites()
       }
       
     render() {
@@ -24,9 +27,10 @@ class TripsContainer extends Component {
             <div className="trip-container">
                 <Switch >
                     <Route exact path="/trips/new" render={ () => <TripInput {...this.props}/> } />
-                    <Route path='/trips/edit/:id' render={routerProps => <TripEdit {...routerProps} {...this.props}  /> } />
+                    <Route path='/trips/:id/edit' render={routerProps => <TripEdit {...routerProps} {...this.props}  /> } />
                     <Route path='/trips/:id' render={routerProps => <Trip {...routerProps} {...this.props}  /> } />
                     <Route path='/trips' render={routerProps => <Trips {...routerProps} {...this.props} />} />
+                    <Route path='/sites/:id' render={routerProps => <SiteEdit {...routerProps} {...this.props} sites={this.props.sites}/> } />
                 </Switch>
             </div>
         )
@@ -47,7 +51,8 @@ const mapDispatchToProps = dispatch => {
       addTrip: trip => dispatch(addTrip(trip)),
       editTrip: editedTrip => dispatch(editTrip(editedTrip)),
       deleteTrip: id => dispatch(deleteTrip(id)),
-      fetchSites: () => dispatch(fetchSites())
+      fetchSites: () => dispatch(fetchSites()),
+      editSite: editedSite => dispatch(editSite(editedSite))
     }
   }
 
